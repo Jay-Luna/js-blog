@@ -1,0 +1,27 @@
+[
+    {
+        "username": "Al",
+        "email": "al@al.al",
+        "password": "password01"
+    },
+    {
+        "username": "Bee",
+        "email": "bee@bee.bee",
+        "password": "password02"
+    },
+    {
+        "username": "Cee",
+        "email": "cee@cee.cee",
+        "password": "password03"
+    },
+    {
+        "username": "Dee",
+        "email": "dee@dee.dee",
+        "password": "password04"
+    },
+    {
+        "username": "EvilAI",
+        "email": "evil@ai.net",
+        "password": "password05"
+    }
+]
