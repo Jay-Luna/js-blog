@@ -8,6 +8,13 @@ const postSchema = new Schema({
     minlength: 1,
     trim: true,
   },
+  postTitle: {
+    type: String,
+    required: 'Untitled',
+    minlength: 1,
+    maxlength: 50,
+    trim: true,
+  },
   postAuthor: {
     type: String,
     required: true,
