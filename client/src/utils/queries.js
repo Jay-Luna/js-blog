@@ -8,6 +8,7 @@ export const QUERY_USER = gql`
       email
       posts {
         _id
+        postTitle
         postText
         createdAt
       }
@@ -16,6 +17,7 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_POSTS = gql`
+<<<<<<< HEAD
   query getPosts {
     posts {
       _id
@@ -23,6 +25,16 @@ export const QUERY_POSTS = gql`
       PostAuthor
       createdAt
     }
+=======
+query GetPost {
+  posts {
+    _id
+    postTitle
+    postText
+    postAuthor
+    createdAt
+ 
+>>>>>>> 07597772 (added postTitle worked on readme)
   }
 `;
 
@@ -30,6 +42,7 @@ export const QUERY_SINGLE_POST = gql`
   query getSinglePost($postId: ID!) {
     post(postId: $postId) {
       _id
+      postTitle
       postText
       postAuthor
       createdAt
@@ -51,6 +64,7 @@ export const QUERY_ME = gql`
       email
       posts {
         _id
+        postTitle
         postText
         postAuthor
         createdAt
