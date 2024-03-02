@@ -43,7 +43,7 @@ const Login = (props) => {
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
+      Auth.login(data.login.token, data.login.user.username);
     } catch (e) {
       console.error(e);
     }
@@ -124,7 +124,6 @@ const Login = (props) => {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              href="/me"
             >
               Sign In
             </Button>
