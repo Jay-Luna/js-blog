@@ -6,7 +6,8 @@ import App from './app';
 import Home from './pages/Home';
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-// import SingleThought from './pages/SingleThought';
+import AllUsers from "./pages/AllUsers";
+import SinglePost from './pages/SinglePost';
 import Profile from "./pages/Profile";
 import ErrorPage from "./pages/ErrorPage";
 
@@ -30,17 +31,21 @@ const router = createBrowserRouter([
       },
       {
         // path: "/profiles/:username",
-        path: "/profiles",
+        path: "/profiles/:userId",
         element: <Profile />,
       },
       {
         path: "/me",
         element: <Profile />,
       },
-      //  {
-      //   path: '/thoughts/:thoughtId',
-      //   element: <SingleThought />
-      // }
+      {
+        path: "/allusers",
+        element: <AllUsers />,
+      },
+       {
+        path: '/posts/:postId',
+        element: <SinglePost />
+      }
     ],
   },
 ]);

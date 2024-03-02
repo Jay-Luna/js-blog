@@ -24,7 +24,6 @@ query GetPost {
     postText
     postAuthor
     createdAt
- 
   }
 }
 `;

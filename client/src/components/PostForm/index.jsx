@@ -50,7 +50,7 @@ const PostForm = () => {
 
   return (
     <div>
-      <h3>What's Up!?</h3>
+      <h3>What's on your techy mind?</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -68,7 +68,7 @@ const PostForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="postText"
-                placeholder="Here's a new post..."
+                placeholder="Here's a new Post..."
                 value={postText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -78,7 +78,7 @@ const PostForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Post
+                Add Post
               </button>
             </div>
             {error && (
@@ -90,7 +90,8 @@ const PostForm = () => {
         </>
       ) : (
         <p>
-          You need to be logged in.
+          You need to be logged in to share your posts. Please{' '}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
     </div>
