@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 
 const PostList = ({
-  posts,
+  posts = [],
   title,
   showTitle = true,
   showUsername = true,
 }) => {
   if (!posts.length) {
-    return <h3>No Post Yet</h3>;
+    return <h3>!No Post Yet!</h3>;
   }
 
   return (
@@ -24,13 +24,13 @@ const PostList = ({
                 >
                   {post.postAuthor} <br />
                   <span style={{ fontSize: '1rem' }}>
-                    had thispost on {post.createdAt}
+                    Posted on {post.createdAt}
                   </span>
                 </Link>
               ) : (
                 <>
                   <span style={{ fontSize: '1rem' }}>
-                    You had this tpost on {post.createdAt}
+                    You had this Post on {post.createdAt}
                   </span>
                 </>
               )}

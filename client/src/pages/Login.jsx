@@ -121,10 +121,10 @@ const Login = (props) => {
             />
             <Button
               type="submit"
-              href="/me"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              href="/me"
             >
               Sign In
             </Button>
