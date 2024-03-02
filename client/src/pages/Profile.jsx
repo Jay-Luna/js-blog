@@ -96,8 +96,9 @@ const Profile = () => {
             src="/static/images/avatar/1.jpg"
           />
           <Typography component="h1" variant="h5">
-            My Profile
+            My Hello
           </Typography>
+          
         </Box>
       </Container>
     </ThemeProvider>
