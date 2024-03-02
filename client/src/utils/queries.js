@@ -17,15 +17,6 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_POSTS = gql`
-<<<<<<< HEAD
-  query getPosts {
-    posts {
-      _id
-      PostText
-      PostAuthor
-      createdAt
-    }
-=======
 query GetPost {
   posts {
     _id
@@ -33,9 +24,8 @@ query GetPost {
     postText
     postAuthor
     createdAt
- 
->>>>>>> 07597772 (added postTitle worked on readme)
   }
+}
 `;
 
 export const QUERY_SINGLE_POST = gql`
