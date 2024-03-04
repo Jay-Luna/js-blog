@@ -22,7 +22,7 @@ export const QUERY_USERS = gql`
     _id
     username
     email
-      posts {
+    posts {
       _id
       postTitle
       postText

@@ -28,9 +28,9 @@ const sections = [
 
 // Fake posts
 const mainFeaturedPost = {
-  title: 'Israeli War on Gaza',
+  title: 'More Fun in the Philippines!',
   description:
-    "Will The United Nations finally intervene & stop Israel from continuing mass genocide in Palestine? Some countries have tried airdropping food to the people of Gaza, but many countries do not want to intervene. ",
+    "Get your passport ready! Over 7,000 Philippne islands ready for you to explore & soak up the sun! Immerse yourself in a culture full of adventures & delicous food! ",
   image: 'https://source.unsplash.com/random?wallpapers',
   imageText: 'main image description',
   linkText: 'Continue reading…',
@@ -80,7 +80,7 @@ const Home = () => {
           <Grid container spacing={5} sx={{ mt: 3 }}>
             <PostList
               posts={posts}
-              title="Some Feed for Posts..."
+              title="Latest Post Discussion..."
             />
             {/* <Sidebar
               title={sidebar.title}
