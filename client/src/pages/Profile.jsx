@@ -31,6 +31,8 @@ const defaultTheme = createTheme();
 
 const Profile = () => {
   const { username: userParam } = useParams();
+  const isMyProfile = userParam === Auth.getProfile().data.username;
+  const profileTitle = `${userParam}'s Profile`;
   const isLoggedIn = Auth.loggedIn();
 
   if (!isLoggedIn) {
@@ -128,15 +130,17 @@ const Profile = () => {
             </MDBCardBody>
           </MDBCard>
           <Grid container spacing={5} sx={{ mt: 3 }}>
-            <div
-              className="col-12 col-md-10 mb-3 p-3"
-              style={{ border: '1px dotted #1a1a1a' }}
-            >
-              <PostForm />
-            </div>
+            {isMyProfile ?
+              (<div
+                className="col-12 col-md-10 mb-3 p-3"
+                style={{ border: '1px dotted #1a1a1a' }}
+              >
+                <PostForm currentUser={userParam} />
+              </div>)
+              : ""}
             <PostList
               posts={posts}
-              title="My Posts"
+              title={profileTitle}
             />
           </Grid>
         </MDBCol>
