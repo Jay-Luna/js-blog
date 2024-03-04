@@ -10,6 +10,7 @@ import Auth from '../../utils/auth';
 const PostForm = () => {
   const [postTitle, setPostTitle] = useState('');
   const [postText, setPostText] = useState('');
+  const { username } = Auth.getProfile().data;
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -27,7 +28,6 @@ const PostForm = () => {
     event.preventDefault();
 
     try {
-      const { username } = Auth.getProfile().data;
       const { data } = await addPost({
         variables: {
           postTitle,
