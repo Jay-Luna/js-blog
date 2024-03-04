@@ -6,7 +6,7 @@ import App from './app';
 import Home from './pages/Home';
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import AllUsers from "./pages/Home";
+import AllUsers from "./pages/AllUsers";
 import SinglePost from './pages/SinglePost';
 import Profile from "./pages/Profile";
 import ErrorPage from "./pages/ErrorPage";
@@ -31,7 +31,12 @@ const router = createBrowserRouter([
       },
       {
         // path: "/profiles/:username",
-        path: "/profiles/:username",
+        path: "/user/:id",
+        element: <Profile />,
+      },
+      {
+        // path: "/profiles/:username",
+        path: "/profile/:username",
         element: <Profile />,
       },
       {
@@ -41,6 +46,10 @@ const router = createBrowserRouter([
        {
         path: '/posts/:postId',
         element: <SinglePost />
+      },
+      {
+        path: '/allusers',
+        element: <AllUsers />
       }
     ],
   },

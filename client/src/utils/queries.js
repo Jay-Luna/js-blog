@@ -16,6 +16,22 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_USERS = gql`
+  query findAll {
+  users {
+    _id
+    username
+    email
+      posts {
+      _id
+      postTitle
+      postText
+      createdAt
+    }
+  }
+}
+`;
+
 export const QUERY_POSTS = gql`
 query GetPost {
   posts {
