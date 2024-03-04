@@ -1,37 +1,102 @@
+import { React } from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
 import { useQuery } from '@apollo/client';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import PostList from '../components/PostList';
-import PostForm from '../components/PostForm';
+import MainFeaturedPost from '../components/MainFeaturedPost.jsx';
+import Header from '../components/Header.jsx';
+import PostList from '../components/PostList/index.jsx';
+import PostForm from '../components/PostForm/index.jsx';
 
-import { QUERY_POSTS } from '../utils/queries';
+import { QUERY_POSTS } from '../utils/queries.js';
+import { Link } from 'react-router-dom';
 
-const AllPost = () => {
+const sections = [
+  { title: 'Technology', url: '#' },
+  { title: 'History', url: '#' },
+  { title: 'Culture', url: '#' },
+  { title: 'Business', url: '#' },
+  { title: 'Politics', url: '#' },
+  { title: 'Opinion', url: '#' },
+  { title: 'Science', url: '#' },
+  { title: 'Health', url: '#' },
+  { title: 'Style', url: '#' },
+  { title: 'Travel', url: '#' },
+];
+
+// Fake posts
+const mainFeaturedPost = {
+  title: 'Israeli War on Gaza',
+  description:
+    "Will The United Nations finally intervene & stop Israel from continuing mass genocide in Palestine? Some countries have tried airdropping food to the people of Gaza, but many countries do not want to intervene. ",
+  image: 'https://source.unsplash.com/random?wallpapers',
+  imageText: 'main image description',
+  linkText: 'Continue reading…',
+};
+
+const defaultTheme = createTheme();
+
+const Home = () => {
   const { loading, data } = useQuery(QUERY_POSTS);
   const posts = data?.posts || [];
 
+  // return (
+  //   <main>
+  //     <div className="flex-row justify-center">
+  //       <div
+  //         className="col-12 col-md-10 mb-3 p-3"
+  //         style={{ border: '1px dotted #1a1a1a' }}
+  //       >
+  //         <PostForm/>
+  //       </div>
+  //       <div className="col-12 col-md-8 mb-3">
+  //         {loading ? (
+  //           <div>Loading...</div>
+  //         ) : (
+  //           <PostList
+  //             posts={posts}
+  //             title="Some Feed for Posts..."
+  //           />
+  //         )}
+  //       </div>
+  //     </div>
+  //   </main>
+  // );
+
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <p>this is homepage</p>
-          <PostForm/>
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
+    <ThemeProvider theme={defaultTheme}>
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <Header title="Blog" sections={sections} />
+        <main>
+          <MainFeaturedPost post={mainFeaturedPost} />
+          {/* <Grid container spacing={4}>
+            {featuredPosts.map((post) => (
+              <FeaturedPost key={post.title} post={post} />
+            ))}
+          </Grid> */}
+          <Grid container spacing={5} sx={{ mt: 3 }}>
             <PostList
               posts={posts}
               title="Some Feed for Posts..."
             />
-          )}
-        </div>
-      </div>
-    </main>
+            {/* <Sidebar
+              title={sidebar.title}
+              description={sidebar.description}
+              archives={sidebar.archives}
+              social={sidebar.social}
+            /> */}
+          </Grid>
+        </main>
+      </Container>
+      {/* <Footer
+        title="Footer"
+        description="Something here to give the footer a purpose!"
+      /> */}
+    </ThemeProvider>
   );
 };
 
-export default AllPost;
+export default Home;

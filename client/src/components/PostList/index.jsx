@@ -23,6 +23,7 @@ const PostList = ({
                   to={`/profiles/${post.postAuthor}`}
                 >
                   {post.postAuthor} <br />
+                  {post.postTitle} <br/>
                   <span style={{ fontSize: '1rem' }}>
                     Posted on {post.createdAt}
                   </span>
@@ -42,7 +43,7 @@ const PostList = ({
               className="btn btn-primary btn-block btn-squared"
               to={`/posts/${post._id}`}
             >
-              Join the discussion on this post.
+              Check out the Discussion.
             </Link>
           </div>
         ))}
