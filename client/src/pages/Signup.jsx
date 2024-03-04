@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -44,6 +44,9 @@ const Signup = () => {
     email: "",
     password: "",
   });
+  useEffect(()=>{
+    console.log(formState);
+  },[formState]);
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
@@ -73,6 +76,7 @@ const Signup = () => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
+      username: data.get("username"),
       email: data.get("email"),
       password: data.get("password"),
     });
@@ -99,19 +103,20 @@ const Signup = () => {
           <Box
             component="form"
             noValidate
-            onSubmit={handleSubmit}
+            onSubmit={handleFormSubmit}
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="userName"
+                  name="username"
                   required
                   fullWidth
                   id="userName"
                   label="User Name"
                   autoFocus
+                  onChange={handleChange}
                 />
               </Grid>
               
@@ -123,6 +128,7 @@ const Signup = () => {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -134,6 +140,7 @@ const Signup = () => {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
