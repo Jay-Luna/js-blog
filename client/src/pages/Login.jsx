@@ -22,7 +22,11 @@ const defaultTheme = createTheme();
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  if (Auth.loggedIn()) {
+    window.location.assign("/");
+  }
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -42,8 +46,7 @@ const Login = (props) => {
       const { data } = await login({
         variables: { ...formState },
       });
-
-      Auth.login(data.login.token, data.login.user.username);
+      Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
@@ -52,15 +55,6 @@ const Login = (props) => {
     setFormState({
       email: '',
       password: '',
-    });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
     });
   };
 

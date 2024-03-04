@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",
+    "@fortawesome/fontawesome-free": "^6.5.1",
     "graphql": "^16.6.0",
     "jwt-decode": "^3.1.2",
+    "markdown-to-jsx": "^7.4.1",
+    "mdb-react-ui-kit": "^7.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2"
