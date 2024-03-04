@@ -139,6 +139,8 @@ const Profile = () => {
               </div>)
               : ""}
             <PostList
+              isMine={isMyProfile}
+              page="profile-page"
               posts={posts}
               title={profileTitle}
             />

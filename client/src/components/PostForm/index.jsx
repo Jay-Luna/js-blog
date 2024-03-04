@@ -45,9 +45,6 @@ const PostForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
-    console.log(value);
-
     if (name === 'postTitle') {
       setPostTitle(value);
     }
