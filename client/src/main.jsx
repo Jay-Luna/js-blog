@@ -30,12 +30,12 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        // path: "/profiles/:username",
+        // path: "/user/:id",
         path: "/user/:id",
         element: <Profile />,
       },
       {
-        // path: "/profiles/:username",
+        // path: "/profile/:username",
         path: "/profile/:username",
         element: <Profile />,
       },

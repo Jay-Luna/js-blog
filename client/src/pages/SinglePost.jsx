@@ -50,6 +50,42 @@ const SinglePost = () => {
         <CommentForm postId={post._id} />
       </div>
     </div>
+
+
+// return (
+//   <ThemeProvider theme={defaultTheme}>
+//   <CssBaseline />
+//   <Container maxWidth="lg">
+//     <Header title="Blog" sections={sections} />
+//     <main>
+//       <MainFeaturedPost post={mainFeaturedPost} />
+//       {/* <Grid container spacing={4}>
+//         {featuredPosts.map((post) => (
+//           <FeaturedPost key={post.title} post={post} />
+//         ))}
+//       </Grid> */}
+//       <Grid container spacing={5} sx={{ mt: 3 }}>
+//         <PostList
+//           posts={posts}
+//           title="Latest Post Discussion..."
+//         />
+//         {/* <Sidebar
+//           title={sidebar.title}
+//           description={sidebar.description}
+//           archives={sidebar.archives}
+//           social={sidebar.social}
+//         /> */}
+//       </Grid>
+//     </main>
+//   </Container>
+//   {/* <Footer
+//     title="Footer"
+//     description="Something here to give the footer a purpose!"
+//   /> */}
+// </ThemeProvider>
+
+// );
+
   );
 };
 

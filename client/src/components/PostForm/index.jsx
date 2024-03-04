@@ -8,32 +8,36 @@ import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
 
 const PostForm = () => {
+  const [postTitle, setPostTitle] = useState('');
   const [postText, setPostText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addPost, { error }] = useMutation
-  (ADD_POST, {
-    refetchQueries: [
-      QUERY_POSTS,
-      'getPosts',
-      QUERY_ME,
-      'me'
-    ]
-  });
+    (ADD_POST, {
+      refetchQueries: [
+        QUERY_POSTS,
+        'getPosts',
+        QUERY_ME,
+        'me'
+      ]
+    });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
+      const { username } = Auth.getProfile().data;
       const { data } = await addPost({
         variables: {
+          postTitle,
           postText,
-          postAuthor: Auth.getProfile().data.username,
+          postAuthor: username,
         },
       });
-
+      setPostTitle('');
       setPostText('');
+      window.location.assign(`/profile/${username}`);
     } catch (err) {
       console.error(err);
     }
@@ -41,6 +45,12 @@ const PostForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
+    console.log(value);
+
+    if (name === 'postTitle') {
+      setPostTitle(value);
+    }
 
     if (name === 'postText' && value.length <= 280) {
       setPostText(value);
@@ -55,9 +65,8 @@ const PostForm = () => {
       {Auth.loggedIn() ? (
         <>
           <p
-            className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
+            className={`m-0 ${characterCount === 280 || error ? 'text-danger' : ''
+              }`}
           >
             Character Count: {characterCount}/280
           </p>
@@ -65,6 +74,16 @@ const PostForm = () => {
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="postTitle"
+                placeholder="Add post title..."
+                value={postTitle}
+                className="form-input w-100"
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
             <div className="col-12 col-lg-9">
               <textarea
                 name="postText"

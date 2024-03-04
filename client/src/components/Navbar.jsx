@@ -27,7 +27,7 @@ const Navbar = () => {
   const myPost = (event) => {
     event.preventDefault();
     const { data } = Auth.getProfile();
-    window.location.assign(`/profiles/${data.username}`);
+    window.location.assign(`/profile/${data.username}`);
   };
 
   const allUsers = (event) => {
