@@ -52,8 +52,6 @@ Jeah Telebrico & Sebastian Skowron
 
 https://github.com/https://github.com/Jay-Luna/js-blog
 
-For any additional questions, please contact me at
-
 ## License
 
     MIT
