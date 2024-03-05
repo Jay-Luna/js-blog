@@ -1,7 +1,6 @@
 # JS Blog
 
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)<br>
-https://www.npmjs.com/package/react-simple-wysiwyg
 
 ## Table of Contents
 
@@ -55,6 +54,6 @@ https://github.com/https://github.com/Jay-Luna/js-blog
 ## License
 
     MIT
-    React WYSIWYG
+    React WYSIWYG 
 
 
