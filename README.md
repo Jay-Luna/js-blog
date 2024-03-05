@@ -41,6 +41,7 @@ React.js, including react-dom and react-router-dom packages
 
 
 ## Usage
+<img width="1500" alt="Screenshot 2024-03-05 at 11 48 22 AM" src="https://github.com/Jay-Luna/js-blog/assets/139188803/ab477e44-2c81-433b-a737-07475b1dc03c">
 
 ## Contribution
 
