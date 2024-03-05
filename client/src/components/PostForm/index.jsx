@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
+import Editor from 'react-simple-wysiwyg';
+
 import { ADD_POST } from '../../utils/mutations';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
@@ -82,14 +84,7 @@ const PostForm = () => {
               ></textarea>
             </div>
             <div className="col-12 col-lg-9">
-              <textarea
-                name="postText"
-                placeholder="Here's a new Post..."
-                value={postText}
-                className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
-              ></textarea>
+              <Editor value={postText} onChange={handleChange} name="postText" />
             </div>
 
             <div className="col-12 col-lg-3">
