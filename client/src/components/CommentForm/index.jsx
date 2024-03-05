@@ -1,19 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-
-// import { Editor } from "react-draft-wysiwyg";
-// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import TextField from "@mui/material/TextField";
 
 import { ADD_COMMENT } from '../../utils/mutations';
-
 import Auth from '../../utils/auth';
 
 const CommentForm = ({ postId }) => {
   const [commentText, setCommentText] = useState('');
-  const [characterCount, setCharacterCount] = useState(0);
-
-  const [addComment, { error }] = useMutation(ADD_COMMENT);
+  const [addComment] = useMutation(ADD_COMMENT);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -35,63 +30,29 @@ const CommentForm = ({ postId }) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
-    if (name === 'commentText' && value.length <= 280) {
+    if (name === 'commentText') {
       setCommentText(value);
-      setCharacterCount(value.length);
     }
   };
 
   return (
     <div>
-      <h4>What are your think about this Post?</h4>
+      <h4>What do you think about this Post?</h4>
 
       {Auth.loggedIn() ? (
         <>
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
-          >
-            Character Count: {characterCount}/280
-            {error && <span className="ml-2">{error.message}</span>}
-          </p>
-
-
-
-
-
-          {/* <Editor
-  editorState={editorState}
-  toolbarClassName="toolbarClassName"
-  wrapperClassName="wrapperClassName"
-  editorClassName="editorClassName"
-  onEditorStateChange={this.onEditorStateChange}
-/> */}
-<button className="btn btn-primary btn-block py-3" type="submit">
-                Add Comment
-              </button>
-          {/* <form
-            className="flex-row justify-center justify-space-between-md align-center"
-            onSubmit={handleFormSubmit}
-          >
-            <div className="col-12 col-lg-9">
-              <textarea
-                name="commentText"
-                placeholder="Add your comment..."
-                value={commentText}
-                className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Comment
-              </button>
-            </div>
-          </form> */}
+          <TextField
+            name="commentText"
+            label="Add a comment"
+            color="primary"
+            margin="normal"
+            onChange={handleChange}
+            fullWidth
+            focused
+          />
+          <button className="btn btn-primary btn-block py-3" type="submit" onClick={handleFormSubmit}>
+            Join this discussion
+          </button>
         </>
       ) : (
         <p>
