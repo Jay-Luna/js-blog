@@ -85,13 +85,19 @@ const Profile = () => {
             <PostForm currentUser={userParam} />
           </div>)
           : ""}
-        <PostList
+        {/* <PostList
+          isMyProfile={isMyProfile}
+          page="profile-page"
+          posts={posts}
+          title={profileTitle}
+        /> */}
+      </Grid>
+      <PostList
           isMyProfile={isMyProfile}
           page="profile-page"
           posts={posts}
           title={profileTitle}
         />
-      </Grid>
     </div>
   );
 };
