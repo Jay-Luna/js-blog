@@ -24,7 +24,7 @@ const CommentForm = ({ postId }) => {
           postId,
           commentText,
           commentAuthor: Auth.getProfile().data.username,
-        },
+        }
       });
 
       setCommentText('');
