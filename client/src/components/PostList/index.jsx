@@ -42,7 +42,7 @@ const PostList = ({
 
   const [removePost] = useMutation(DELETE_POST);
   const [updatePost] = useMutation(EDIT_POST);
-  const sessionUsername = Auth.getProfile().data.username;
+  const sessionUsername = Auth.loggedIn() ? Auth.getProfile().data.username : 'EvilAI';
 
   const [postTitle, setPostTitle] = useState('');
   const [postText, setPostText] = useState('');
