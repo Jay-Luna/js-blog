@@ -49,7 +49,7 @@ Jeah Telebrico & Sebastian Skowron
 
 ## Questions
 
-https://github.com/https://github.com/Jay-Luna/js-blog<br>
+https://github.com/Jay-Luna/js-blog<br>
 https://js-blog-9wl7.onrender.com/
 
 ## License
