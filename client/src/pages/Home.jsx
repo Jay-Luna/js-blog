@@ -27,7 +27,7 @@ const sections = [
 const mainFeaturedPost = {
   title: 'More Fun in the Philippines!',
   description:
-    "Get your passport ready! Over 7,000 Philippne islands ready for you to explore & soak up the sun! Immerse yourself in a culture full of adventures & delicous food! ",
+    "Get your passport ready! Over 7,000 Philippine islands ready for you to explore & soak up the sun! Immerse yourself in a culture full of adventures & delicous food! ",
   image: 'https://source.unsplash.com/random?wallpapers',
   imageText: 'main image description',
   linkText: 'Continue reading…',
